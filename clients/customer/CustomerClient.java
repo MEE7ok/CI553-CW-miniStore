@@ -1,8 +1,6 @@
 package clients.customer;
 
-import clients.customer.CustomerController;
-import clients.customer.CustomerModel;
-import clients.customer.CustomerView;
+
 import middle.MiddleFactory;
 import middle.Names;
 import middle.RemoteMiddleFactory;
@@ -37,6 +35,6 @@ public class CustomerClient
     view.setController( cont );
 
     model.addObserver( view );       // Add observer to the model
-    window.setVisible(true);         // Display Scree
+    window.setVisible(true);         // Display Screen
   }
 }

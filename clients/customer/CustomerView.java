@@ -6,10 +6,12 @@ import clients.Picture;
 import middle.MiddleFactory;
 import middle.StockReader;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
+import java.awt.event.ActionEvent;
 
 /**
  * Implements the Customer view.
@@ -20,6 +22,7 @@ public class CustomerView implements Observer
   class Name                              // Names of buttons
   {
     public static final String CHECK  = "Check";
+    public static final String CHECKName = "Check Name";
     public static final String CLEAR  = "Clear";
   }
 
@@ -32,6 +35,7 @@ public class CustomerView implements Observer
   private final JTextArea   theOutput  = new JTextArea();
   private final JScrollPane theSP      = new JScrollPane();
   private final JButton     theBtCheck = new JButton( Name.CHECK );
+  private final JButton     theBtCheckName = new JButton( Name.CHECKName );
   private final JButton     theBtClear = new JButton( Name.CLEAR );
 
   private Picture thePicture = new Picture(80,80);
@@ -70,7 +74,22 @@ public class CustomerView implements Observer
     theBtCheck.setBounds( 16, 25+60*0, 80, 40 );    // Check button
     theBtCheck.addActionListener(                   // Call back code
       e -> cont.doCheck( theInput.getText() ) );
+    theBtCheck.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+    		  .put(KeyStroke.getKeyStroke("ENTER"), "doclick");
+    theBtCheck.getActionMap().put("doclick", new AbstractAction() {
+    	@Override
+    	public void actionPerformed(ActionEvent e) {
+    		JOptionPane.showMessageDialog(null, "You have entered ");
+    	}
+    });
     cp.add( theBtCheck );                           //  Add to canvas
+    
+    theBtCheckName.setBounds(16, 25+60*1, 80, 40 );
+    theBtCheckName.setBackground(Color.BLACK);
+    theBtCheckName.setForeground(Color.BLACK);
+    theBtCheckName.addActionListener(
+    		e -> cont.doCheckByName( theInput.getText() ) );
+    cp.add(theBtCheckName);
 
     theBtClear.setBounds( 16, 25+60*1, 80, 40 );    // Clear button
     theBtClear.addActionListener(                   // Call back code

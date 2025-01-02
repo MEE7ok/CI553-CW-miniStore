@@ -66,14 +66,25 @@ public class CashierView implements Observer
     pageTitle.setText( "Thank You for Shopping at MiniStrore" );                        
     cp.add( pageTitle );  
     
-    theBtCheck.setBounds( 16, 25+60*0, 80, 40 );    // Check Button
+    theBtCheck.setBounds( 16, 25+60*0, 80, 40 );    // Check Button			
     theBtCheck.addActionListener(                   // Call back code
       e -> cont.doCheck( theInput.getText() ) );
+    theBtCheck.setBackground(Color.RED); 			// Adding a background colour to the button
+    theBtCheck.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2)); // Adding a border to the button 
+    theBtCheck.setFont(new Font("Arial", Font.BOLD, 14)); // Changing the font of the text in the button and making it bold
+    theBtCheck.setContentAreaFilled(false);         // Removes the previous effects on the button
+    theBtCheck.setOpaque(true);						// Adds the new changes that I have made. 
     cp.add( theBtCheck );                           //  Add to canvas
+  			
 
     theBtBuy.setBounds( 16, 25+60*1, 80, 40 );      // Buy button 
     theBtBuy.addActionListener(                     // Call back code
       e -> cont.doBuy() );
+    theBtBuy.setBackground(Color.CYAN);
+    theBtBuy.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+    theBtBuy.setFont(new Font("Arial", Font.BOLD, 14));
+    theBtBuy.setContentAreaFilled(false);
+    theBtBuy.setOpaque(true);
     cp.add( theBtBuy );                             //  Add to canvas
 
     theBtBought.setBounds( 16, 25+60*3, 80, 40 );   // Bought Button
@@ -121,7 +132,7 @@ public class CashierView implements Observer
     theAction.setText( message );
     Basket basket = model.getBasket();
     if ( basket == null )
-      theOutput.setText( "Customers order" );
+      theOutput.setText( "Your basket is empty." );
     else
       theOutput.setText( basket.getDetails() );
     
