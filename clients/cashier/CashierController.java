@@ -1,5 +1,6 @@
 package clients.cashier;
 
+import clients.customer.NameToNumber;
 
 /**
  * The Cashier Controller
@@ -28,6 +29,13 @@ public class CashierController
   public void doCheck( String pn )
   {
     model.doCheck(pn);
+  }
+  
+  public void doCheckByName( String name )
+  {
+	  NameToNumber nameToNumber = new NameToNumber();
+	  String pn = nameToNumber.getNumberByName(nameToNumber, name);
+	  model.doCheck(pn);
   }
 
    /**

@@ -17,6 +17,7 @@ import middle.MiddleFactory;
 import javax.swing.*;
 import java.awt.*;
 
+
 /**
  * Starts all the clients (user interface)  as a single application.
  * Good for testing the system using a single application.
@@ -132,3 +133,4 @@ class Main
   }
   
 }
+

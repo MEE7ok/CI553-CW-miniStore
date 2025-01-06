@@ -84,10 +84,10 @@ public class CustomerView implements Observer
     });
     cp.add( theBtCheck );                           //  Add to canvas
     
-    theBtCheckName.setBounds(16, 25+60*1, 80, 40 );
-    theBtCheckName.setBackground(Color.BLACK);
-    theBtCheckName.setForeground(Color.BLACK);
-    theBtCheckName.addActionListener(
+    theBtCheckName.setBounds(16, 25+60*1, 80, 40 ); // Adding the Check By Name
+    theBtCheckName.setBackground(Color.BLACK); 		// Setting the background colour as black
+    theBtCheckName.setForeground(Color.BLACK);		// Adding the text to black
+    theBtCheckName.addActionListener(				// Call back code
     		e -> cont.doCheckByName( theInput.getText() ) );
     cp.add(theBtCheckName);
 
