@@ -71,7 +71,7 @@ public class CashierView implements Observer
     
     theBtCheck.setBounds( 16, 25, 80, 40 );    // Check Button			
     theBtCheck.addActionListener(                   // Call back code
-      e -> cont.doCheck( theInput.getText() ) );
+      e -> cont.doCheck( theInput.getText(),Integer.parseInt(buyQuantity.getText())) );
     theBtCheck.setBackground(Color.RED); 			// Adding a background colour to the button
     theBtCheck.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2)); // Adding a border to the button 
     theBtCheck.setFont(new Font("Arial", Font.BOLD, 14)); // Changing the font of the text in the button and making it bold
@@ -83,7 +83,7 @@ public class CashierView implements Observer
     theBtCheckByName.setBackground(Color.BLACK);
     theBtCheckByName.setForeground(Color.BLUE);
     theBtCheckByName.addActionListener(
-    		e -> cont.doCheckByName( theInput.getText() ) );
+    		e -> cont.doCheckByName( theInput.getText(),Integer.parseInt(buyQuantity.getText()) ) );
     cp.add(theBtCheckByName);
   			
 

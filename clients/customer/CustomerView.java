@@ -35,7 +35,7 @@ public class CustomerView implements Observer
   private final JTextArea   theOutput  = new JTextArea();
   private final JScrollPane theSP      = new JScrollPane();
   private final JButton     theBtCheck = new JButton( Name.CHECK );
-  private final JButton     theBtCheckName = new JButton( Name.CHECKName );
+  private final JButton     theBtCheckByName = new JButton( Name.CHECKName );
   private final JButton     theBtClear = new JButton( Name.CLEAR );
 
   private Picture thePicture = new Picture(80,80);
@@ -84,12 +84,12 @@ public class CustomerView implements Observer
     });
     cp.add( theBtCheck );                           //  Add to canvas
     
-    theBtCheckName.setBounds(16, 25+60*1, 80, 40 ); // Adding the Check By Name
-    theBtCheckName.setBackground(Color.BLACK); 		// Setting the background colour as black
-    theBtCheckName.setForeground(Color.BLACK);		// Adding the text to black
-    theBtCheckName.addActionListener(				// Call back code
+    theBtCheckByName.setBounds(16, 25+60*1, 80, 40 ); // Adding the Check By Name
+    theBtCheckByName.setBackground(Color.BLACK); 		// Setting the background colour as black
+    theBtCheckByName.setForeground(Color.BLACK);		// Adding the text to black
+    theBtCheckByName.addActionListener(				// Call back code
     		e -> cont.doCheckByName( theInput.getText() ) );
-    cp.add(theBtCheckName);
+    cp.add(theBtCheckByName);
 
     theBtClear.setBounds( 16, 25+60*1, 80, 40 );    // Clear button
     theBtClear.addActionListener(                   // Call back code
